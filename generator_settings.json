@@ -1,0 +1,7 @@
+{
+    "note_range": [60, 72],
+    "interval_range": [1, 4],
+    "time_between_notes": 1,
+    "time_to_answer": 2,
+    "question_period": 5
+}
