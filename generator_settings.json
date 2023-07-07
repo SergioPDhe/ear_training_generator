@@ -1,7 +1,8 @@
 {
+    "number_of_questions": 10,
     "note_range": [60, 72],
     "interval_range": [1, 4],
-    "time_between_notes": 1,
-    "time_to_answer": 2,
-    "question_period": 5
+    "time_between_notes": 0.5,
+    "time_to_answer": 5,
+    "question_period": 10
 }
