@@ -7,16 +7,6 @@ import pyttsx3
 home_dir = Path(os.getcwd())
 home_dir = str(home_dir.parent.absolute())
 
-f = open(home_dir + "/generator_settings.json")
-data = json.load(f)
-f.close()
-del f
-
-number_of_questions = data["number_of_questions"]
-note_range = data["note_range"]
-interval_range = data["interval_range"]
-del data
-
 notes = np.genfromtxt("notes.csv", delimiter=',')
 
 #TTS CLASS////////////////////////////////////////////////////////////
@@ -40,7 +30,6 @@ class TextToSpeech:
         for i, voice in enumerate(voices[0]):
             print(f'({i + 1}) {voice.name} {voice.age}: {voice.languages[0]} ({voice.gender}) [ID: {voice.id}]')
 
-tts = TextToSpeech(None, 200, 1.0)
         
 def get_interval(note1, note2):
     intervals = ["unison", "flat two", "second", "minor third", "major third", "fourth", "tritone", "fifth",
@@ -64,4 +53,5 @@ def get_answers_mp3():
     tts.text_to_speech(answers, file_name='answers.mp3')
 
 
+tts = TextToSpeech(None, 170, 1.0)
 get_answers_mp3()
