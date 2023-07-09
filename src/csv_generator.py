@@ -36,7 +36,6 @@ def get_notes_csv():
         notes = np.append(notes, get_notes(),axis=0)
 
     notes = np.delete(notes,0,0)
-    notes = notes.astype(int)
 
     np.savetxt("notes.csv", notes, delimiter=',')
 
