@@ -6,14 +6,14 @@ import mido
 from mido import MidiFile, Message, MidiTrack
 
 home_dir = Path(os.getcwd())
-home_dir = str(home_dir.parent.absolute())
+home_dir = str(home_dir.absolute())
 
 f = open(home_dir + "/generator_settings.json")
 data = json.load(f)
 f.close()
 del f
 
-notes = np.genfromtxt("notes.csv", delimiter=',')
+notes = np.genfromtxt("output/notes.csv", delimiter=',')
 notes = notes.astype(int)
 
 mid = MidiFile()
@@ -30,4 +30,4 @@ for i,pair in enumerate(notes):         # Get the index and the note. Array must
     track.append(Message('note_on',note = pair[1], velocity = 0,time = 0))
     
 mid.tracks.append(track)
-mid.save("notes.mid")
+mid.save("output/notes.mid")

@@ -5,9 +5,11 @@ import numpy as np
 import pyttsx3
 
 home_dir = Path(os.getcwd())
-home_dir = str(home_dir.parent.absolute())
+# home_dir = home_dir.parent.absolute()
 
-notes = np.genfromtxt("notes.csv", delimiter=',')
+home_dir = str(home_dir)
+
+notes = np.genfromtxt(home_dir +"/output/notes.csv", delimiter=',')
 
 #TTS CLASS////////////////////////////////////////////////////////////
 class TextToSpeech:
@@ -50,7 +52,7 @@ def get_answers_mp3():
     for pair in range(notes.shape[0]):
         answers = answers + get_interval(notes[pair][0], notes[pair][1]) + "\n\n"
 
-    tts.text_to_speech(answers, file_name='answers.mp3')
+    tts.text_to_speech(answers, file_name='output/answers.mp3')
 
 
 tts = TextToSpeech(None, 170, 1.0)

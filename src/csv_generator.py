@@ -5,7 +5,8 @@ import numpy as np
 from random import randint
 
 home_dir = Path(os.getcwd())
-home_dir = str(home_dir.parent.absolute())
+# home_dir = str(home_dir.parent.absolute())
+home_dir = str(home_dir.absolute())
 
 f = open(home_dir + "/generator_settings.json")
 data = json.load(f)
@@ -37,7 +38,7 @@ def get_notes_csv():
 
     notes = np.delete(notes,0,0)
 
-    np.savetxt("notes.csv", notes, delimiter=',')
+    np.savetxt("output/notes.csv", notes, delimiter=',')
 
 
 get_notes_csv()
