@@ -52,7 +52,7 @@ def get_answers_mp3():
     for pair in range(notes.shape[0]):
         answers = answers + get_interval(notes[pair][0], notes[pair][1]) + "\n\n"
 
-    tts.text_to_speech(answers, file_name='output/answers.mp3')
+    tts.text_to_speech(answers, file_name='output/answers.wav')
 
 
 tts = TextToSpeech(None, 170, 1.0)
