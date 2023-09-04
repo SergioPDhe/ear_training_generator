@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 import mido
 from mido import MidiFile, Message, MidiTrack
+from midi2audio import FluidSynth
 
 home_dir = Path(os.getcwd())
 home_dir = str(home_dir.absolute())
@@ -31,3 +32,8 @@ for i,pair in enumerate(notes):         # Get the index and the note. Array must
     
 mid.tracks.append(track)
 mid.save("output/notes.mid")
+
+# using the default sound font in 44100 Hz sample rate
+fs = FluidSynth()
+fs.midi_to_audio('output/notes.mid', 'output/output.wav')
+
